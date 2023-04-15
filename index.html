@@ -1,0 +1,527 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5E17YML5ER"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5E17YML5ER');
+</script>
+    <meta charset="utf-8">
+    <title>Mapa lote con botón interactivo</title>
+    <style>
+      #mapa {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  background-image: url('https://i.postimg.cc/MHHcvczn/mapa.jpg');
+  background-size: cover;
+
+      }
+
+
+      .boton {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        background-color: blue;
+        border-radius: 80%;
+        background-size: cover;
+        background-position: center center;
+        cursor: pointer;
+      }
+      .boton::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.7);
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+      }
+      .boton:hover::before {
+        opacity: 1;
+      }
+      .panorama1 {
+        top: 800px;
+        left: 1050px;
+        background-image: url('https://i.postimg.cc/RZGNQ3NG/panorama1-vr.jpg');
+	border: 2px solid white;
+
+      }
+      .panorama1::after {
+        content: "Panorama 1";
+        position: absolute;
+        top: 60px;
+        left: -30px;
+        color: white;
+        font-size: 12px;
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+      }
+      .panorama1:hover::after {
+        opacity: 1;
+      }
+      .panorama2 {
+        top: 775px;
+        left: 940px;
+        background-image: url('https://i.postimg.cc/y8f83wbb/panorama2-vr.jpg');
+	border: 2px solid white;
+      }
+      .panorama2::after {
+        content: "Panorama 2";
+        position: absolute;
+        top: 60px;
+        left: -30px;
+        color: white;
+        font-size: 12px;
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+      }
+      .panorama2:hover::after {
+        opacity: 1;
+      }
+      .panorama3 {
+        top: 760px;
+        left: 1250px;
+        background-image: url('https://i.postimg.cc/T1rPy1zV/panorama3-vr.jpg');
+	border: 2px solid white;
+      }
+      .panorama3::after {
+        content: "Panorama 3";
+        position: absolute;
+        top: 60px;
+        left: -30px;
+        color: white;
+        font-size: 12px;
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+      }
+      .panorama3:hover::after {
+        opacity: 1;
+      }
+
+  .panorama4 {
+        top: 530px;
+        left: 1300px;
+        background-image: url('https://i.postimg.cc/hvFjPT54/panorama4-vr.jpg');
+	border: 2px solid white;
+      }
+      .panorama4::after {
+        content: "Panorama 4";
+        position: absolute;
+        top: 60px;
+        left: -30px;
+        color: white;
+        font-size: 12px;
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+      }
+      .panorama4:hover::after {
+        opacity: 1;
+      }
+
+.panorama5 {
+        top: 590px;
+        left: 1180px;
+        background-image: url('https://i.postimg.cc/d1Z3Y4nS/panorama5-vr.jpg');
+	border: 2px solid white;
+      }
+      .panorama5::after {
+        content: "Panorama 5";
+        position: absolute;
+        top: 60px;
+        left: -30px;
+        color: white;
+        font-size: 12px;
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+      }
+      .panorama5:hover::after {
+        opacity: 1;
+      }
+
+.panorama6 {
+        top: 435px;
+        left: 1100px;
+        background-image: url('https://i.postimg.cc/TPGpnVdK/PANO-20230409-154554-vr.jpg');
+	border: 2px solid white;
+      }
+      .panorama6::after {
+        content: "Panorama 6";
+        position: absolute;
+        top: 60px;
+        left: -30px;
+        color: white;
+        font-size: 12px;
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+      }
+      .panorama6:hover::after {
+        opacity: 1;
+      }
+
+.panorama7 {
+        top: 390px;
+        left: 920px;
+        background-image: url('https://i.postimg.cc/PrgL5G0z/PANO-20230409-155008-vr.jpg');
+	border: 2px solid white;
+      }
+      .panorama7::after {
+        content: "Panorama 7";
+        position: absolute;
+        top: 60px;
+        left: -30px;
+        color: white;
+        font-size: 12px;
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+      }
+      .panorama7:hover::after {
+        opacity: 1;
+      }
+
+.panorama8 {
+        top: 330px;
+        left: 920px;
+        background-image: url('https://i.postimg.cc/6Qy5rMs5/PANO-20230409-162903-vr.jpg');
+	border: 2px solid white;
+      }
+      .panorama8::after {
+        content: "Panorama 8";
+        position: absolute;
+        top: 60px;
+        left: -30px;
+        color: white;
+        font-size: 12px;
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+      }
+      .panorama8:hover::after {
+        opacity: 1;
+      }
+
+.panorama9 {
+        top: 450px;
+        left: 865px;
+        background-image: url('https://i.postimg.cc/jjXCcD2Z/PANO-20230409-160903-vr.jpg');
+	border: 2px solid white;
+      }
+      .panorama9::after {
+        content: "Panorama 9";
+        position: absolute;
+        top: 60px;
+        left: -30px;
+        color: white;
+        font-size: 12px;
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+      }
+      .panorama9:hover::after {
+        opacity: 1;
+      }
+
+.panorama10 {
+        top: 500px;
+        left: 830px;
+        background-image: url('https://i.postimg.cc/Jzjsy6Lw/PANO-20230409-161050-vr.jpg');
+	border: 2px solid white;
+      }
+      .panorama10::after {
+        content: "Panorama 10";
+        position: absolute;
+        top: 60px;
+        left: -30px;
+        color: white;
+        font-size: 12px;
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+      }
+      .panorama10:hover::after {
+        opacity: 1;
+      }
+
+.panorama11 {
+        top: 440px;
+        left: 765px;
+        background-image: url('https://i.postimg.cc/HLhnRf0y/PANO-20230409-161547-vr.jpg');
+	border: 2px solid white;
+      }
+      .panorama11::after {
+        content: "Panorama 11";
+        position: absolute;
+        top: 60px;
+        left: -30px;
+        color: white;
+        font-size: 12px;
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+      }
+      .panorama11:hover::after {
+        opacity: 1;
+      }
+
+.panorama12 {
+        top: 310px;
+        left: 805px;
+        background-image: url('https://i.postimg.cc/W31zHsJj/PANO-20230409-155529-vr.jpg');
+	border: 2px solid white;
+      }
+      .panorama12::after {
+        content: "Panorama 12";
+        position: absolute;
+        top: 60px;
+        left: -30px;
+        color: white;
+        font-size: 12px;
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+      }
+      .panorama12:hover::after {
+        opacity: 1;
+      }
+
+
+.panorama13 {
+        top: 660px;
+        left: 1430px;
+        background-image: url('https://i.postimg.cc/G2KJF8cJ/panorama-vr.jpg');
+	border: 2px solid white;
+      }
+      .panorama13::after {
+        content: "Panorama 13";
+        position: absolute;
+        top: 60px;
+        left: -30px;
+        color: white;
+        font-size: 12px;
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+      }
+      .panorama13:hover::after {
+        opacity: 1;
+      }
+
+  .boton2 {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-color: blue;
+        border-radius: 5px;
+        background-size: cover;
+        background-position: center center;
+        cursor: pointer;
+      }
+      .boton2::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.7);
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+      }
+      .boton2:hover::before {
+        opacity: 1;
+      }
+
+ .foto2 {
+        top: 810px;
+        left: 1455px;
+        background-image: url('https://i.postimg.cc/J7dDSHqF/foto1.jpg');
+	border: 2px solid white;
+      }
+  	.foto2::after {
+ 	 content: "Foto 2";
+  	position: absolute;
+  	top: 28px;
+  	left: -17px;
+  	color: white;
+  	font-size: 12px;
+  	opacity: 0;
+  	transition: opacity 0.2s ease-in-out;
+
+      }
+      .foto2:hover::after {
+        opacity: 1;
+      }
+
+ .foto3 {
+        top: 500px;
+        left: 1130px;
+        background-image: url('https://i.postimg.cc/nh0qcVfj/IMG-20230409-154156.jpg');
+	border: 2px solid white;
+      }
+  	.foto3::after {
+ 	 content: "Foto 3";
+  	position: absolute;
+  	top: 28px;
+  	left: -17px;
+  	color: white;
+  	font-size: 12px;
+  	opacity: 0;
+  	transition: opacity 0.2s ease-in-out;
+
+      }
+      .foto3:hover::after {
+        opacity: 1;
+      }
+
+ .foto4 {
+        top: 415px;
+        left: 900px;
+        background-image: url('https://i.postimg.cc/J7dDSHqF/foto1.jpg');
+	border: 2px solid white;
+      }
+  	.foto4::after {
+ 	 content: "Foto 4";
+  	position: absolute;
+  	top: 28px;
+  	left: -17px;
+  	color: white;
+  	font-size: 12px;
+  	opacity: 0;
+  	transition: opacity 0.2s ease-in-out;
+
+      }
+      .foto4:hover::after {
+        opacity: 1;
+      }
+
+  .foto5 {
+        top: 330px;
+        left: 850px;
+        background-image: url('https://i.postimg.cc/gJtj91vh/IMG-20230409-155332.jpg');
+	border: 2px solid white;
+      }
+  	.foto5::after {
+ 	 content: "Foto 5";
+  	position: absolute;
+  	top: 28px;
+  	left: -17px;
+  	color: white;
+  	font-size: 12px;
+  	opacity: 0;
+  	transition: opacity 0.2s ease-in-out;
+
+      }
+      .foto5:hover::after {
+        opacity: 1;
+      }
+
+  .foto6 {
+        top: 380px;
+        left: 805px;
+        background-image: url('https://i.postimg.cc/L6YYS4Q8/IMG-20230409-160435.jpg');
+	border: 2px solid white;
+      }
+  	.foto6::after {
+ 	 content: "Foto 6";
+  	position: absolute;
+  	top: 28px;
+  	left: -17px;
+  	color: white;
+  	font-size: 12px;
+  	opacity: 0;
+  	transition: opacity 0.2s ease-in-out;
+
+      }
+      .foto6:hover::after {
+        opacity: 1;
+      }
+
+ .boton3 {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        border-radius: 5px;
+        background-size: cover;
+        background-position: center center;
+        cursor: pointer;
+      }
+      .boton3::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.7);
+     }
+
+  .ruta {
+        top: 950px;
+        left: 1400px;
+        background-image: url('https://i.postimg.cc/htpqJMm2/camino-guiado2.jpg');
+	border: 2px solid white;
+      }
+  	.ruta::after {
+ 	 content: "RUTA";
+  	position: absolute;
+  	top: 100px;
+  	left: -17px;
+  	color: white;
+  	font-size: 25px;
+  	
+      }
+ 
+
+    </style>
+  </head>
+  <body>
+    <div id="mapa">
+      <div class="boton panorama1" onclick="window.open('https://kuula.co/share/57Dy9')"></div>
+
+      <div class="boton panorama2" onclick="window.open('https://kuula.co/share/57DyF')"></div>
+
+<div class="boton panorama3" onclick="window.open('https://kuula.co/share/57DRb')"></div>
+
+<div class="boton panorama4" onclick="window.open('https://kuula.co/share/57DyP')"></div>
+
+<div class="boton panorama5" onclick="window.open('https://kuula.co/share/57DRD')"></div>
+
+<div class="boton panorama6" onclick="window.open('https://kuula.co/share/57DRH')"></div>
+
+<div class="boton panorama7" onclick="window.open('https://kuula.co/share/57DRM')"></div>
+
+<div class="boton panorama8" onclick="window.open('https://kuula.co/share/57DyG')"></div>
+
+<div class="boton panorama9" onclick="window.open('https://kuula.co/share/57Dyh')"></div>
+
+<div class="boton panorama10" onclick="window.open('https://kuula.co/share/57DyL')"></div>
+
+<div class="boton panorama11" onclick="window.open('https://kuula.co/share/57Dyp')"></div>
+
+<div class="boton panorama12" onclick="window.open('https://kuula.co/share/57DWz')"></div>
+
+<div class="boton panorama13" onclick="window.open('https://kuula.co/share/57g3d')"></div>
+
+<div class="boton3 ruta" onclick="window.open('https://kuula.co/share/57gyN')"></div>
+
+<div class="boton2 foto6" onclick="window.open('https://kuula.co/share/57HmS')"></div>
+
+<div class="boton2 foto5" onclick="window.open('https://kuula.co/share/57HmR')"></div>
+
+<div class="boton2 foto4" onclick="window.open('https://kuula.co/share/57Hmd')"></div>
+
+<div class="boton2 foto3" onclick="window.open('https://kuula.co/share/57Hmx')"></div>
+
+<div class="boton2 foto2" onclick="window.open('https://kuula.co/share/57HGl')"></div>
+    </div>
+  </body>
+</html>
